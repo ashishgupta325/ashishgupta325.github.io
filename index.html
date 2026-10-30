@@ -12,26 +12,40 @@
   body { margin:0; background:var(--ground); color:var(--ink);
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     display:flex; justify-content:center; padding:48px 16px; }
-  main { background:var(--page); width:100%; max-width:560px; border-radius:24px;
-    box-shadow:0 2px 12px rgba(37,31,33,.08); padding:36px 28px 28px; }
+  main { background:var(--page); width:100%; max-width:720px; border-radius:24px;
+    box-shadow:0 2px 12px rgba(37,31,33,.08); padding:36px 32px 28px; }
   .avatar { display:block; width:96px; height:96px; border-radius:50%; object-fit:cover; margin:0 auto 20px; }
   h1 { font-family:Georgia,"Times New Roman",serif; font-weight:400; font-size:34px; letter-spacing:-0.02em; margin:0 0 14px; }
-  .intro { font-size:17px; line-height:1.55; margin:0 0 28px; }
+  .intro { font-size:17px; line-height:1.55; margin:0 0 32px; }
   h2 { font-family:Georgia,"Times New Roman",serif; font-weight:400; font-size:21px; margin:0 0 14px; }
-  .facts { margin:0 0 28px; }
+  .row { display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:start; margin-bottom:28px; }
+  .facts { margin:0; }
   .fact { display:flex; gap:16px; padding:10px 0; border-bottom:1px solid var(--hairline); font-size:15px; }
   .fact:last-child { border-bottom:0; }
-  .fact dt { width:110px; flex:none; color:var(--ink2); }
+  .fact dt { width:96px; flex:none; color:var(--ink2); }
   .fact dd { margin:0; font-weight:600; }
   .lede { font-size:15px; line-height:1.55; color:var(--ink); margin:0 0 16px; }
-  .links { display:flex; flex-direction:column; gap:12px; align-items:flex-start; margin-bottom:28px; }
-  .links a { display:inline-flex; align-items:center; gap:8px; padding:10px 16px; border:1px solid var(--hairline);
-    border-radius:10px; background:var(--page); color:var(--ink); text-decoration:none; font-size:15px; font-weight:600; }
+  .links { display:flex; flex-direction:column; gap:12px; }
+  .links a { display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:10px 16px; border:1px solid var(--hairline);
+    border-radius:10px; background:var(--page); color:var(--ink); text-decoration:none; font-size:15px; font-weight:600; text-align:center; }
   .links a:hover { border-color:var(--ink2); }
   .links a::after { content:"\2197"; font-weight:400; color:var(--ink2); }
   .note { background:var(--ground); border-radius:12px; padding:14px 16px; font-size:14px; line-height:1.5; margin-bottom:24px; }
   .note strong { display:block; margin-bottom:4px; }
   footer { color:var(--ink2); font-size:13px; }
+  @media (max-width: 599px) {
+    body { padding:32px 14px; }
+    main { padding:28px 20px 22px; }
+    .avatar { width:80px; height:80px; margin-bottom:12px; }
+    h1 { font-size:30px; margin-bottom:10px; }
+    .intro { margin-bottom:24px; }
+    h2 { margin-bottom:10px; }
+    .row { grid-template-columns:1fr; gap:24px; margin-bottom:24px; }
+    .online-col { order:-1; }
+    .lede { margin-bottom:12px; }
+    .links { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:8px; }
+    .links a { padding:8px 10px; font-size:14px; white-space:normal; }
+  }
 </style>
 </head>
 <body>
@@ -40,22 +54,27 @@
   <h1>Ashish Gupta</h1>
   <p class="intro">Full-time trader - stocks, derivatives and crypto, across Indian and US markets. 10+ years in the markets. I write and make videos about options, market structure, IPOs and trading memes.</p>
 
-  <h2>About</h2>
-  <dl class="facts">
-    <div class="fact"><dt>Trading</dt><dd>Stocks, derivatives and crypto</dd></div>
-    <div class="fact"><dt>Markets</dt><dd>India and US</dd></div>
-    <div class="fact"><dt>Experience</dt><dd>10+ years, full-time</dd></div>
-    <div class="fact"><dt>Based in</dt><dd>Singapore</dd></div>
-  </dl>
-
-  <h2>Find me online</h2>
-  <p class="lede">Market commentary on X, videos on YouTube, reels on Instagram and long-form blogs on Medium.</p>
-  <nav class="links">
-    <a href="https://x.com/AshishGupta325">X - @AshishGupta325</a>
-    <a href="https://www.youtube.com/@ashishgupta_325">YouTube - @ashishgupta_325</a>
-    <a href="https://www.instagram.com/ashishgupta325.in/">Instagram - @ashishgupta325.in</a>
-    <a href="https://scorp-ashishgupta.medium.com/">Medium - Ashish Gupta</a>
-  </nav>
+  <div class="row">
+    <section class="about-col">
+      <h2>About</h2>
+      <dl class="facts">
+        <div class="fact"><dt>Trading</dt><dd>Stocks, derivatives and crypto</dd></div>
+        <div class="fact"><dt>Markets</dt><dd>India and US</dd></div>
+        <div class="fact"><dt>Experience</dt><dd>10+ years, full-time</dd></div>
+        <div class="fact"><dt>Based in</dt><dd>Singapore</dd></div>
+      </dl>
+    </section>
+    <section class="online-col">
+      <h2>Find me online</h2>
+      <p class="lede">Market commentary on X, videos on YouTube, reels on Instagram and long-form blogs on Medium.</p>
+      <nav class="links">
+        <a href="https://x.com/AshishGupta325">X - @AshishGupta325</a>
+        <a href="https://www.youtube.com/@ashishgupta_325">YouTube - @ashishgupta_325</a>
+        <a href="https://www.instagram.com/ashishgupta325.in/">Instagram - @ashishgupta325.in</a>
+        <a href="https://scorp-ashishgupta.medium.com/">Medium - Ashish Gupta</a>
+      </nav>
+    </section>
+  </div>
 
   <div class="note"><strong>Good to know</strong>Everything I post is educational content, not investment advice. I am not registered with SEBI.</div>
 
